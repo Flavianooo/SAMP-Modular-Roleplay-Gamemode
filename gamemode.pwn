@@ -18,7 +18,7 @@
 #define MOD_SURUM			"VC:RP"
 #define MOD_GELISTIRICI		"Flaviano"
 #define MOD_SIFRE			"123123"
-#define MOD_DIL				"Türkçe/Turkish"
+#define MOD_DIL				"TÃ¼rkÃ§e/Turkish"
 #define MOD_WEBSITE			"website"	
 
 #define MYSQL_BAGLANTI		(1) // 1:localhost 2:vds
@@ -53,7 +53,7 @@
 
 #define TIMER_SANIYE	(742)
 
-// FİYATLANDIRMALAR
+// FÄ°YATLANDIRMALAR
 
 #define KIYAFET_UCRET	(300)
 #define BALIK_SATIS 	(40)
@@ -76,7 +76,7 @@
 #define RENK_GRI		(0xAFAFAFFF)
 #define RENK_VARSAYILAN	(0xFFFFFFFF)
 
-// SİSTEM KISITLAMALARI
+// SÄ°STEM KISITLAMALARI
 
 #define MAKSIMUM_RAPOR			120
 #define MAKSIMUM_BALIK_BOLGE	50
@@ -86,7 +86,7 @@
 #define MAX_CIFTLIK             100
 #define MAX_BIRLIK				1000
 
-// SİLAH DURUM TANIMLAMALARI
+// SÄ°LAH DURUM TANIMLAMALARI
 
 #define SILAH_USTUNDE	0
 #define SILAH_ARACTA	1
@@ -178,7 +178,7 @@ public OnPlayerConnect(playerid)
 	/*Streamer_ToggleChunkStream(1);
 	Streamer_ToggleErrorCallback(1);
 */
-	// Giriş - Kamera Açısı
+	// GiriÅŸ - Kamera AÃ§Ä±sÄ±
 	SetPlayerCameraPos(playerid, 158.3348,-2098.9861,56.6490);
 	SetPlayerCameraLookAt(playerid, 176.5682,-2053.3926,48.5751);
 	return true;
@@ -265,18 +265,18 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				{
 					if(Araclar[aracid][AracTur] == 1 && Karakter[playerid][EhliyetTesti] == 1)
 					{
-						SunucuEx(playerid, "{3C5DA5}[SÜRÜCÜ KURSU] Sürüş testiniz başladı. İşaretli noktaları takip edin, hız sınırı bulunmamaktadır.");
+						SunucuEx(playerid, "{3C5DA5}[SÃœRÃœCÃœ KURSU] SÃ¼rÃ¼ÅŸ testiniz baÅŸladÄ±. Ä°ÅŸaretli noktalarÄ± takip edin, hÄ±z sÄ±nÄ±rÄ± bulunmamaktadÄ±r.");
 						Karakter[playerid][EhliyetCP] = 1;
 						SetPlayerCheckpoint(playerid, 949.5048,-1392.8918,13.0291, 6.0);
 					}
 					else
 					{
-						SunucuEx(playerid, "{3C5DA5}[ARAÇ]{C8C8C8} Araç Türü: %s | Model: %s", AracTurIsim(aracid), AracModelCek(aracid));
+						SunucuEx(playerid, "{3C5DA5}[ARAÃ‡]{C8C8C8} AraÃ§ TÃ¼rÃ¼: %s | Model: %s", AracTurIsim(aracid), AracModelCek(aracid));
 					}
 				}
 				else if(Araclar[aracid][Sahip] > 0)
 				{
-					SunucuEx(playerid, "{3C5DA5}[ARAÇ]{C8C8C8} Sahip: %s | Model: %s | Fiyat: %s | Vergi: %s", AracSahipIsim(aracid), AracModelCek(aracid), NumaraFormati(AracFiyatCek(aracid)), NumaraFormati(Araclar[aracid][Vergi]));
+					SunucuEx(playerid, "{3C5DA5}[ARAÃ‡]{C8C8C8} Sahip: %s | Model: %s | Fiyat: %s | Vergi: %s", AracSahipIsim(aracid), AracModelCek(aracid), NumaraFormati(AracFiyatCek(aracid)), NumaraFormati(Araclar[aracid][Vergi]));
 				}
 			}
 			new gosterge[96];
@@ -311,7 +311,7 @@ public OnPlayerText(playerid, text[])
 	if(!Karakter[playerid][Giris]) return GirisYapmadi(playerid), false;
 	if(!strcmp(text, ":)", true))
 	{
-		cmd(playerid, 1, "gülümser.");
+		cmd(playerid, 1, "gÃ¼lÃ¼mser.");
 		return false;
 	}
 	if(!strcmp(text, ":(", true))
@@ -326,12 +326,12 @@ public OnPlayerText(playerid, text[])
 	}
 	if(!strcmp(text, ":/", true))
 	{
-		cmd(playerid, 1, "ağzını yamultur.");
+		cmd(playerid, 1, "aÄŸzÄ±nÄ± yamultur.");
 		return false;
 	}
 	if(!strcmp(text, ";)", true))
 	{
-		cmd(playerid, 1, "göz kırpar.");
+		cmd(playerid, 1, "gÃ¶z kÄ±rpar.");
 		return false;
 	}
 	new str[128];
@@ -376,11 +376,11 @@ public OnPlayerEditDynamicObject(playerid, objectid, response, Float:x, Float:y,
 {
 	if(response == EDIT_RESPONSE_FINAL)
 	{
-		Sunucu(playerid, "Objeyi düzenledin.");
+		Sunucu(playerid, "Objeyi dÃ¼zenledin.");
 	}
 	if(response == EDIT_RESPONSE_CANCEL)
 	{
-		Sunucu(playerid, "Objeyi düzenlemekten vazgeçtin.");
+		Sunucu(playerid, "Objeyi dÃ¼zenlemekten vazgeÃ§tin.");
 	}
 	return true;
 }
@@ -397,8 +397,8 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		if(BinaYakin(playerid) != -1)
 		{
 			new binaid = BinaYakin(playerid);
-			if(Binalar[binaid][Durum] == 1) return Sunucu(playerid, "Bu bina kilitli. Giriş yapamazsınız.");
-			if(Binalar[binaid][Int][0] == 0.0 && Binalar[binaid][Int][1] == 0.0 && Binalar[binaid][Int][2] == 0.0) return Sunucu(playerid, "Bu binanın iç mekanı henüz ayarlanmamış görünüyor.");
+			if(Binalar[binaid][Durum] == 1) return Sunucu(playerid, "Bu bina kilitli. GiriÅŸ yapamazsÄ±nÄ±z.");
+			if(Binalar[binaid][Int][0] == 0.0 && Binalar[binaid][Int][1] == 0.0 && Binalar[binaid][Int][2] == 0.0) return Sunucu(playerid, "Bu binanÄ±n iÃ§ mekanÄ± henÃ¼z ayarlanmamÄ±ÅŸ gÃ¶rÃ¼nÃ¼yor.");
 			SetPlayerPos(playerid, Binalar[binaid][Int][0], Binalar[binaid][Int][1], Binalar[binaid][Int][2]);
 			SetPlayerVirtualWorld(playerid, Binalar[binaid][IcWorld]);
 			SetPlayerInterior(playerid, Binalar[binaid][IcInterior]);
@@ -424,8 +424,8 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		if(EvYakin(playerid) != -1)
 		{
 			new evid = EvYakin(playerid);
-			if(Evler[evid][Durum] == 1) return Sunucu(playerid, "Bu ev kilitli. Giriş yapamazsınız.");
-			if(Evler[evid][Int][0] == 0.0 && Evler[evid][Int][1] == 0.0 && Evler[evid][Int][2] == 0.0) return Sunucu(playerid, "Bu evin iç mekanı henüz ayarlanmamış görünüyor.");
+			if(Evler[evid][Durum] == 1) return Sunucu(playerid, "Bu ev kilitli. GiriÅŸ yapamazsÄ±nÄ±z.");
+			if(Evler[evid][Int][0] == 0.0 && Evler[evid][Int][1] == 0.0 && Evler[evid][Int][2] == 0.0) return Sunucu(playerid, "Bu evin iÃ§ mekanÄ± henÃ¼z ayarlanmamÄ±ÅŸ gÃ¶rÃ¼nÃ¼yor.");
 			SetPlayerPos(playerid, Evler[evid][Int][0], Evler[evid][Int][1], Evler[evid][Int][2]);
 			SetPlayerVirtualWorld(playerid, Evler[evid][IcWorld]);
 			SetPlayerInterior(playerid, Evler[evid][IcInterior]);
@@ -450,8 +450,8 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		if(IsyeriYakin(playerid) != -1)
 		{
 			new isyeriid = IsyeriYakin(playerid);
-			if(Isyeri[isyeriid][Durum] == 1) return Sunucu(playerid, "Bu işyeri kilitli. Giriş yapamazsınız.");
-			if(Isyeri[isyeriid][Int][0] == 0.0 && Isyeri[isyeriid][Int][1] == 0.0 && Isyeri[isyeriid][Int][2] == 0.0) return Sunucu(playerid, "Bu işyerinin iç mekanı henüz ayarlanmamış görünüyor.");
+			if(Isyeri[isyeriid][Durum] == 1) return Sunucu(playerid, "Bu iÅŸyeri kilitli. GiriÅŸ yapamazsÄ±nÄ±z.");
+			if(Isyeri[isyeriid][Int][0] == 0.0 && Isyeri[isyeriid][Int][1] == 0.0 && Isyeri[isyeriid][Int][2] == 0.0) return Sunucu(playerid, "Bu iÅŸyerinin iÃ§ mekanÄ± henÃ¼z ayarlanmamÄ±ÅŸ gÃ¶rÃ¼nÃ¼yor.");
 			SetPlayerPos(playerid, Isyeri[isyeriid][Int][0], Isyeri[isyeriid][Int][1], Isyeri[isyeriid][Int][2]);
 			SetPlayerVirtualWorld(playerid, Isyeri[isyeriid][IcWorld]);
 			SetPlayerInterior(playerid, Isyeri[isyeriid][IcInterior]);
@@ -493,7 +493,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 				if(GetPlayerProgressBarValue(playerid, bicimprog[playerid]) >= GetPVarInt(playerid, "CiftlikEkinler"))
 				{
 					new cid = Karakter[playerid][Ciftlik];
-					Sunucu(playerid, "Başarıyla tarlanızda ekili olan %s bitkisini biçtiniz.", ekinlerveri[CiftlikInfo[cid][cUrun]][ekinisim]);
+					Sunucu(playerid, "BaÅŸarÄ±yla tarlanÄ±zda ekili olan %s bitkisini biÃ§tiniz.", ekinlerveri[CiftlikInfo[cid][cUrun]][ekinisim]);
 					Doluluk[playerid] = 0;
 					CiftlikInfo[cid][cUrun] = 0;
 					CiftlikInfo[cid][cOlgunlasma] = 0;
@@ -624,7 +624,7 @@ public OnPlayerCommandPerformed(playerid, cmd[], params[], result, flags)
 {
     if(result == -1)
     {
-        Sunucu(playerid, "Sunucuda böyle bir komut bulunmamaktadır.");
+        Sunucu(playerid, "Sunucuda bÃ¶yle bir komut bulunmamaktadÄ±r.");
         return 0;
     }
     return 1;
@@ -632,7 +632,7 @@ public OnPlayerCommandPerformed(playerid, cmd[], params[], result, flags)
 
 public OnPlayerCommandReceived(playerid, cmd[], params[], flags)
 {
-	if(!Karakter[playerid][Giris]) return Sunucu(playerid, "Giriş yapmadan komut kullanamazsınız."), 0;
+	if(!Karakter[playerid][Giris]) return Sunucu(playerid, "GiriÅŸ yapmadan komut kullanamazsÄ±nÄ±z."), 0;
 	Log_Kaydet("loglar/komut_kullanimi.txt", "[%s] %s: /%s %s", TarihCek(), RPIsim(playerid), cmd, params);
 	return 1;
 }
@@ -669,7 +669,7 @@ public OnPlayerEnterCheckpoint(playerid)
 				}
 				else
 				{
-					Sunucu(playerid, "Hile şüphesi nedeniyle sınav iptal oldu. Lütfen tekrar deneyin.");
+					Sunucu(playerid, "Hile ÅŸÃ¼phesi nedeniyle sÄ±nav iptal oldu. LÃ¼tfen tekrar deneyin.");
 					Log_Kaydet("loglar/checkpoint_hilesi.txt", "[%s] %s adli kisinin ehliyet sinavi hile suphesi nedeniyle iptal oldu.", TarihCek(), RPIsim(playerid));
 					Karakter[playerid][EhliyetTesti] = 0;
 					AracSpawnla(aracid);
@@ -692,7 +692,7 @@ public OnPlayerEnterCheckpoint(playerid)
 				GetVehicleHealth(aracid, aracHp);
 				if(aracHp < 750.0)
 				{
-					Sunucu(playerid, "Araca çok fazla hasar verdiğinizden dolayı sınavı geçemediniz.");
+					Sunucu(playerid, "Araca Ã§ok fazla hasar verdiÄŸinizden dolayÄ± sÄ±navÄ± geÃ§emediniz.");
 					Karakter[playerid][EhliyetTesti] = 0;
 					AracSpawnla(aracid);
 					new Float:x, Float:y, Float:z;
@@ -701,7 +701,7 @@ public OnPlayerEnterCheckpoint(playerid)
 				}
 				else
 				{
-					Sunucu(playerid, "Sınavı başarıyla geçtiniz. Artık ehliyet sahibisiniz.");
+					Sunucu(playerid, "SÄ±navÄ± baÅŸarÄ±yla geÃ§tiniz. ArtÄ±k ehliyet sahibisiniz.");
 					Karakter[playerid][EhliyetTesti] = 0;
 					Karakter[playerid][EhliyetCP] = 0;
 					Karakter[playerid][Ehliyet] = 1;
@@ -741,7 +741,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 									if(listitem == i) model = ErkekBeyazSkinler[i];
 								}
 								SetPVarInt(playerid, "AlinacakSkin", model);
-								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}Kıyafet Satın Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karşılığında satın almak istediğinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu işlemin geri dönüşü yoktur. Üstünüzdeki kıyafet değişecek.", "Onayla", "İptal", model, NumaraFormati(KIYAFET_UCRET));
+								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}KÄ±yafet SatÄ±n Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karÅŸÄ±lÄ±ÄŸÄ±nda satÄ±n almak istediÄŸinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu iÅŸlemin geri dÃ¶nÃ¼ÅŸÃ¼ yoktur. ÃœstÃ¼nÃ¼zdeki kÄ±yafet deÄŸiÅŸecek.", "Onayla", "Ä°ptal", model, NumaraFormati(KIYAFET_UCRET));
 							}
 							case 2:
 							{
@@ -751,7 +751,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 									if(listitem == i) model = ErkekSiyahSkinler[i];
 								}
 								SetPVarInt(playerid, "AlinacakSkin", model);
-								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}Kıyafet Satın Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karşılığında satın almak istediğinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu işlemin geri dönüşü yoktur. Üstünüzdeki kıyafet değişecek.", "Onayla", "İptal", model, NumaraFormati(KIYAFET_UCRET));
+								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}KÄ±yafet SatÄ±n Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karÅŸÄ±lÄ±ÄŸÄ±nda satÄ±n almak istediÄŸinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu iÅŸlemin geri dÃ¶nÃ¼ÅŸÃ¼ yoktur. ÃœstÃ¼nÃ¼zdeki kÄ±yafet deÄŸiÅŸecek.", "Onayla", "Ä°ptal", model, NumaraFormati(KIYAFET_UCRET));
 							}
 						}
 					}
@@ -767,7 +767,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 									if(listitem == i) model = KadinBeyazSkinler[i];
 								}
 								SetPVarInt(playerid, "AlinacakSkin", model);
-								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}Kıyafet Satın Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karşılığında satın almak istediğinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu işlemin geri dönüşü yoktur. Üstünüzdeki kıyafet değişecek.", "Onayla", "İptal", model, NumaraFormati(KIYAFET_UCRET));
+								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}KÄ±yafet SatÄ±n Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karÅŸÄ±lÄ±ÄŸÄ±nda satÄ±n almak istediÄŸinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu iÅŸlemin geri dÃ¶nÃ¼ÅŸÃ¼ yoktur. ÃœstÃ¼nÃ¼zdeki kÄ±yafet deÄŸiÅŸecek.", "Onayla", "Ä°ptal", model, NumaraFormati(KIYAFET_UCRET));
 							}
 							case 2:
 							{
@@ -777,7 +777,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 									if(listitem == i) model = KadinSiyahSkinler[i];
 								}
 								SetPVarInt(playerid, "AlinacakSkin", model);
-								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}Kıyafet Satın Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karşılığında satın almak istediğinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu işlemin geri dönüşü yoktur. Üstünüzdeki kıyafet değişecek.", "Onayla", "İptal", model, NumaraFormati(KIYAFET_UCRET));
+								Dialog_Show(playerid, DIALOG_KIYAFET_ONAY, DIALOG_STYLE_MSGBOX, "{99C794}KÄ±yafet SatÄ±n Alma", "{FFFFFF}%d ID'li skini {3C5DA5}%s{FFFFFF} karÅŸÄ±lÄ±ÄŸÄ±nda satÄ±n almak istediÄŸinize emin misiniz?\n{3C5DA5}NOT:{FFFFFF} Bu iÅŸlemin geri dÃ¶nÃ¼ÅŸÃ¼ yoktur. ÃœstÃ¼nÃ¼zdeki kÄ±yafet deÄŸiÅŸecek.", "Onayla", "Ä°ptal", model, NumaraFormati(KIYAFET_UCRET));
 							}
 						}
 					}
@@ -789,10 +789,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(response)
 			{
 				new aracmodel = SatilikAraclar[listitem][0], fiyat = SatilikAraclar[listitem][1];
-				if(Karakter[playerid][Para] < fiyat) return Sunucu(playerid, "Bu aracı satın almak için yeterli miktarda paran yok.");
+				if(Karakter[playerid][Para] < fiyat) return Sunucu(playerid, "Bu aracÄ± satÄ±n almak iÃ§in yeterli miktarda paran yok.");
 				SetPVarInt(playerid, "AracModel", aracmodel);
 				SetPVarInt(playerid, "AracFiyat", fiyat);
-				Dialog_Show(playerid, DIALOG_ARAC_SATINAL, DIALOG_STYLE_MSGBOX, "{99C794}Araç Satın Al", "{3C5DA5}%s{FFFFFF} model aracı {3C5DA5}%s{FFFFFF} karşılığında satın almak istiyor musun?", "Onayla", "İptal", GetVehicleNameByModel(aracmodel), NumaraFormati(fiyat));
+				Dialog_Show(playerid, DIALOG_ARAC_SATINAL, DIALOG_STYLE_MSGBOX, "{99C794}AraÃ§ SatÄ±n Al", "{3C5DA5}%s{FFFFFF} model aracÄ± {3C5DA5}%s{FFFFFF} karÅŸÄ±lÄ±ÄŸÄ±nda satÄ±n almak istiyor musun?", "Onayla", "Ä°ptal", GetVehicleNameByModel(aracmodel), NumaraFormati(fiyat));
 			}
 		}
 		case 23302:
@@ -859,7 +859,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				new query[192];
 				mysql_format(conn, query, sizeof(query), "UPDATE karakterler SET Olusturuldu = 1 WHERE id = %i", Karakter[playerid][id]);
 				mysql_query(conn, query);
-				Sunucu(playerid, "Lütfen karakter verileriniz yüklenirken biraz bekleyin...");
+				Sunucu(playerid, "LÃ¼tfen karakter verileriniz yÃ¼klenirken biraz bekleyin...");
 				SetPlayerCameraPos(playerid, 158.3348,-2098.9861,56.6490);
 				SetPlayerCameraLookAt(playerid, 176.5682,-2053.3926,48.5751);
 				SetTimerEx("KarakterAyarla", 1500, false, "i", playerid);
@@ -881,16 +881,16 @@ public OnPlayerEnterDynamicArea(playerid, areaid)
 		{
 			if(CiftlikInfo[i][cSahipID] == 0)
 			{
-			Sunucu(playerid, "Çiftlik Adı: Florida Eyalet Çiftlikleri (ID: %d)",i);
-			Sunucu(playerid, "Çiftlik Sahibi: %d | Fiyat: %s | Dönüm: %.2f", CiftlikInfo[i][cSahipID], NumaraFormati(CiftlikInfo[i][cPara]), CiftlikInfo[i][cDonum]);
-			Sunucu(playerid, "Bu arsa satılık! Arsayı satın almak için '/satinal'");
+			Sunucu(playerid, "Ã‡iftlik AdÄ±: Florida Eyalet Ã‡iftlikleri (ID: %d)",i);
+			Sunucu(playerid, "Ã‡iftlik Sahibi: %d | Fiyat: %s | DÃ¶nÃ¼m: %.2f", CiftlikInfo[i][cSahipID], NumaraFormati(CiftlikInfo[i][cPara]), CiftlikInfo[i][cDonum]);
+			Sunucu(playerid, "Bu arsa satÄ±lÄ±k! ArsayÄ± satÄ±n almak iÃ§in '/satinal'");
 			Karakter[playerid][Ciftlik] = i;
 			}
 			else
 			{
-			Sunucu(playerid, "Çiftlik Adı: %s (ID: %d)", CiftlikInfo[i][cIsim], i);
-			Sunucu(playerid, "Çiftlik Sahibi: %d | Fiyat: %s | Toplam Dönüm: %.2f", CiftlikInfo[i][cSahipID], NumaraFormati(CiftlikInfo[i][cPara]), CiftlikInfo[i][cDonum]);
-			Sunucu(playerid, "Ekili ürün: %s | Ürünlerin olgunlaşmasına %d saat kaldı.", ekinlerveri[CiftlikInfo[i][cUrun]][ekinisim], CiftlikInfo[i][cOlgunlasma]);
+			Sunucu(playerid, "Ã‡iftlik AdÄ±: %s (ID: %d)", CiftlikInfo[i][cIsim], i);
+			Sunucu(playerid, "Ã‡iftlik Sahibi: %d | Fiyat: %s | Toplam DÃ¶nÃ¼m: %.2f", CiftlikInfo[i][cSahipID], NumaraFormati(CiftlikInfo[i][cPara]), CiftlikInfo[i][cDonum]);
+			Sunucu(playerid, "Ekili Ã¼rÃ¼n: %s | ÃœrÃ¼nlerin olgunlaÅŸmasÄ±na %d saat kaldÄ±.", ekinlerveri[CiftlikInfo[i][cUrun]][ekinisim], CiftlikInfo[i][cOlgunlasma]);
 			Karakter[playerid][Ciftlik] = i;
 			}
 		}
@@ -915,7 +915,7 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 		if(Karakter[playerid][Ciftlik] != -1) CiftlikInfo[Karakter[playerid][Ciftlik]][cIslem] = false;
 		SetPVarInt(playerid, "CiftlikEkimIslem", 0);
 		DeletePVar(playerid, "CiftlikEkimIslem");
-		Sunucu(playerid, "Tarla ekimi sırasında traktörden indiğiniz için ekim işlemi durdu.");
+		Sunucu(playerid, "Tarla ekimi sÄ±rasÄ±nda traktÃ¶rden indiÄŸiniz iÃ§in ekim iÅŸlemi durdu.");
 	}
 	if(GetPVarInt(playerid, "CiftlikBicimIslem") == 1)
 	{
@@ -931,11 +931,11 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 		SetPVarInt(playerid, "CiftlikEkinler", 0);
 		DeletePVar(playerid, "CiftlikEkinler");
 		DeletePVar(playerid, "oncekiciftlik");
-		Sunucu(playerid, "Tarlayı biçerken biçerdöverden indiğiniz için biçme işlemi durdu.");
+		Sunucu(playerid, "TarlayÄ± biÃ§erken biÃ§erdÃ¶verden indiÄŸiniz iÃ§in biÃ§me iÅŸlemi durdu.");
 	}
 	if(Karakter[playerid][EhliyetTesti] == 1)
 	{
-		Sunucu(playerid, "Araçtan indiğiniz için sürüş testi iptal oldu.");
+		Sunucu(playerid, "AraÃ§tan indiÄŸiniz iÃ§in sÃ¼rÃ¼ÅŸ testi iptal oldu.");
 		Karakter[playerid][EhliyetTesti] = 0;
 		AracSpawnla(vehicleid);
 		new Float:x, Float:y, Float:z;
