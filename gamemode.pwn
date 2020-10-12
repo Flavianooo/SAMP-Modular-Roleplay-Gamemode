@@ -14,8 +14,8 @@
 //#include <FCNPC>
 #include <AnimFix>
 
-#define MOD_ADI				"Vice Roleplay ~ vice-rp.com"
-#define MOD_SURUM			"VC:RP"
+#define MOD_ADI				"Flaviano Gamemode"
+#define MOD_SURUM			"v1.0"
 #define MOD_GELISTIRICI		"Flaviano"
 #define MOD_SIFRE			"123123"
 #define MOD_DIL				"Türkçe/Turkish"
